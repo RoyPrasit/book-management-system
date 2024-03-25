@@ -125,33 +125,32 @@ function findBookBytitle() {
     }
 }
 
-//choice funciton
-function mainMenu() {
-    let choice;
-    do {
-        choice = prompt("Choose\n1. addbook\n2. viewbook\n3. editbook\n4. deletebook\n5. findbook\n6. Exit \n");
-        switch (choice) {
-            case "1":
-                addBook();
-                break;
-            case "2":
-                viewBooks();
-                break;
-            case "3":
-                editBook();
-                break;
-            case "4":
-                deleteBook();
-                break;
-            case "5":
-                findBookBytitle();
-                break;
-            case "6":
-                alert("Already Exit");
-                break;
-            default:
-                alert("Re choose");
-        }
-    } while (choice !== "6");
-}
-mainMenu();
+//choose funciton
+const { question } = require('readline');
+const readlineInterface = question("Choose\n1. addbook\n2. viewbook\n3. editbook\n4. deletebook\n5. findbook\n6. Exit \n");
+
+readlineInterface.on('line', (choice) => {
+    switch (choice) {
+        case "1":
+            addBook();
+            break;
+        case "2":
+            viewBooks();
+            break;
+        case "3":
+            editBook();
+            break;
+        case "4":
+            deleteBook();
+            break;
+        case "5":
+            findBookBytitle();
+            break;
+        case "6":
+            console.log("Already Exit");
+            readlineInterface.close();
+            break;
+        default:
+            console.log("Re choose");
+    }
+});
