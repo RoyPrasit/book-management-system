@@ -115,8 +115,8 @@ function findBookBytitle() {
 }
 
 //choose function
-let choose = 0;
 do {
+let choose = 0;
     console.log("Choose:");
     console.log("1. addbook");
     console.log("2. viewbooks");
