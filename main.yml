@@ -14,4 +14,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run JavaScript code
-        run: node book store.js
+        run: node bookstore.js
