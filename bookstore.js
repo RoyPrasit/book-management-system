@@ -1,15 +1,3 @@
-function showMainMenu() {
-    console.log("Choose:");
-    console.log("1. addbook ");
-    console.log("2. viewbooks ");
-    console.log("3. editbook ");
-    console.log("4. deletebook ");
-    console.log("5. findbook");
-    console.log("6. Exit");
-
-    return parseInt(prompt("Enter number operate :"));
-}
-
 let books = [];
 
 //addbook function
@@ -118,16 +106,6 @@ function deleteBook() {
 //findBook function
 function findBookBytitle() {
     let Title = prompt("Enter the title of the book to search:");
-    if (!Title) {
-        alert("Please enter a title.");
-        return;
-    }
-    
-    if (!books || books.length === 0) {
-        alert("No books found");
-        return;
-    }
-
     let foundBook = books.find(book => book && book.Title && book.Title.toLowerCase() === Title.toLowerCase());
     if (foundBook) {
         alert(`Found the book:\nTitle: ${foundBook.Title}\nAuthor: ${foundBook.Author}\nYear: ${foundBook.Year}\nPrice: ${foundBook.Price}`);
@@ -136,9 +114,18 @@ function findBookBytitle() {
     }
 }
 
-let choice;
+//choose function
+let choice = 0;
 do {
-    choice = showMainMenu();
+    console.log("Choose:");
+    console.log("1. addbook");
+    console.log("2. viewbooks");
+    console.log("3. editbook");
+    console.log("4. deletebook");
+    console.log("5. findbook");
+    console.log("6. Exit");
+    choice = parseInt(prompt("Choose Menu\n"));
+
     switch (choice) {
         case 1:
             addBook();
@@ -153,7 +140,7 @@ do {
             deleteBook();
             break;
         case 5:
-            findBookBytitle();
+            findBookByTitle();
             break;
         case 6:
             console.log("Already Exit");
