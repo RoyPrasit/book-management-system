@@ -116,6 +116,7 @@ function findBookBytitle() {
 
 //choose function
 do {
+  let choose =0;
     console.log("Choose:");
     console.log("1. addbook");
     console.log("2. viewbooks");
@@ -123,7 +124,7 @@ do {
     console.log("4. deletebook");
     console.log("5. findbook");
     console.log("6. Exit");
- var choose = parseInt(prompt("Choose Menu\n"));
+ choose = prompt("Choose Menu\n");
 
     switch (choose) {
         case 1:
