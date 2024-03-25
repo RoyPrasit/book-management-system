@@ -1,3 +1,14 @@
+function showMainMenu() {
+    console.log("Choose:");
+    console.log("1. addbook ");
+    console.log("2. viewbooks ");
+    console.log("3. editbook ");
+    console.log("4. deletebook ");
+    console.log("5. findbook");
+    console.log("6. Exit");
+
+    return parseInt(prompt("Enter number operate :"));
+}
 
 let books = [];
 
@@ -55,25 +66,25 @@ function editBook() {
     if (foundBookIndex !== -1) {
         let book = books[foundBookIndex];
         
-        book.Title = prompt(`Edit the title of the book (${book.Title}):`) || book.Title;
+        book.Title = prompt(`Edit the title of the book (${book.Title}) to :`) || book.Title;
         if (book.Title.trim() === "") {
             alert('Title cannot be blank! RE-edit the title');
             return editBook();
         }
 
-        book.Author = prompt(`Edit the author of the book (${book.Author}):`) || book.Author;
+        book.Author = prompt(`Edit the author of the book (${book.Author}) to :`) || book.Author;
         if (book.Author.trim() === "") {
             alert('Author cannot be blank!RE-edit the author');
             return editBook();
         }
 
-      book.Year = parseInt(prompt(`Edit the year of the book (${book.Year}):`));
+      book.Year = parseInt(prompt(`Edit the year of the book (${book.Year}) to :`));
         if (isNaN(book.Year) || book.Year < 0) {
             alert('Wrong ! RE-edit to a valid year.');
             return editBook();
         }
 
-       book.Price = parseFloat(prompt(`Edit the price of the book (${book.Price}):`));
+       book.Price = parseFloat(prompt(`Edit the price of the book (${book.Price}) to :`));
         if (isNaN(book.Price) || book.Price < 0) {
             alert('Wrong ! RE-edit to a valid price.');
             return editBook();
@@ -125,32 +136,29 @@ function findBookBytitle() {
     }
 }
 
-//choose funciton
-const { question } = require('readline');
-const readlineInterface = question("Choose\n1. addbook\n2. viewbook\n3. editbook\n4. deletebook\n5. findbook\n6. Exit \n");
-
-readlineInterface.on('line', (choice) => {
+let choice;
+do {
+    choice = showMainMenu();
     switch (choice) {
-        case "1":
+        case 1:
             addBook();
             break;
-        case "2":
+        case 2:
             viewBooks();
             break;
-        case "3":
+        case 3:
             editBook();
             break;
-        case "4":
+        case 4:
             deleteBook();
             break;
-        case "5":
+        case 5:
             findBookBytitle();
             break;
-        case "6":
+        case 6:
             console.log("Already Exit");
-            readlineInterface.close();
             break;
         default:
             console.log("Re choose");
     }
-});
+} while (choice !== 6);
