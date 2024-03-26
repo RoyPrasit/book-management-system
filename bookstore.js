@@ -116,7 +116,7 @@ function findBookBytitle() {
 
 //choose function
 function promptUser() {
-    let choice = prompt("Choose Menu (1: Addbook, 2: Viewbook, 3: Editbook, 4: Deletebook, 5:Findbook 0: Exit) \nchooses :");
+    let choice = prompt("Choose Menu (1: Addbook, 2: Viewbook, 3: Editbook, 4: Deletebook, 5:Findbook 0: Exit) \n choose :");
     switch (parseInt(choice)) {
         case 0:
             console.log("Already Exit");
