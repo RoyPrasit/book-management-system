@@ -115,17 +115,12 @@ function findBookBytitle() {
 }
 
 //choose function
-do {
-    console.log("Choose:");
-    console.log("1. addbook");
-    console.log("2. viewbooks");
-    console.log("3. editbook");
-    console.log("4. deletebook");
-    console.log("5. findbook");
-    console.log("6. Exit");
-let choose = prompt("Choose Menu\n");
-  
-    switch (choose) {
+function promptUser() {
+    let choice = prompt("Choose Menu (1: Addbook, 2: Viewbook, 3: Editbook, 4: Deletebook, 5:Findbook 0: Exit) \nchooses :");
+    switch (parseInt(choice)) {
+        case 0:
+            console.log("Already Exit");
+            return;
         case 1:
             addBook();
             break;
@@ -138,13 +133,12 @@ let choose = prompt("Choose Menu\n");
         case 4:
             deleteBook();
             break;
-        case 5:
-            findBookByTitle();
-            break;
-        case 6:
-            console.log("Already Exit");
+         case 5:
+            findBookBytitle();
             break;
         default:
-            console.log("Re choose");
+            console.log("Rechoose");
     }
-} while (choose !== 6);
+    promptUser();
+}
+promptUser();
